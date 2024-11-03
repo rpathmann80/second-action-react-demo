@@ -19,6 +19,7 @@ jobs:
             - name: Run tests
               run: npm test
     deploy:
+      needs: test
       runs-on: ubuntu-latest
       steps:
         - name: Get code
@@ -33,6 +34,11 @@ jobs:
           run: npm run build
         - name: Deploy
           run: echo "Deploying ..."
-
+    finish:
+      needs: [test, deploy]
+      runs-on: ubuntu-latest
+      steps:
+        - name: Finish
+          uses: echo "Finished!"
             
 
