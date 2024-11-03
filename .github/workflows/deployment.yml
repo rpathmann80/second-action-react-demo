@@ -39,6 +39,6 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Finish
-          uses: echo "Finished!"
+          run: echo "Finished!"
             
 
